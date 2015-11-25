@@ -1,0 +1,27 @@
+{
+  "name": "node-ldap",
+  "version": "1.0.0",
+  "description": "node ldap client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ymyang/node-ldap.git"
+  },
+  "keywords": [
+    "ldap",
+    "ad"
+  ],
+  "author": "ymyang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ymyang/node-ldap/issues"
+  },
+  "homepage": "https://github.com/ymyang/node-ldap#readme",
+  "dependencies": {
+    "bluebird": "^3.0.5",
+    "ldapjs": "^1.0.0"
+  }
+}
