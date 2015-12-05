@@ -11,7 +11,8 @@ npm install node-ldap
 
 已通过Windows Server 2008测试
 
-```
+```javascript
+
 var LdapClient = RedisClient('node-ldap');
 
 var client = new LdapClient({
