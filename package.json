@@ -1,6 +1,6 @@
 {
   "name": "node-ldap",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "node ldap client",
   "main": "index.js",
   "scripts": {
