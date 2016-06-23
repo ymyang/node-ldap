@@ -16,7 +16,7 @@ describe('ldap', function() {
         }).catch(done);
     });
 
-    it.only('auth', function(done) {
+    it('auth', function(done) {
         var client = new LdapClient({
             ldapUrl: 'ldap://192.168.0.30:389',
             userDn: 'administrator@yliyun.com',
@@ -30,5 +30,29 @@ describe('ldap', function() {
             console.error(err);
             done();
         });
+    });
+
+    it.only('searchGroup', function(done) {
+        var client = new LdapClient({
+            ldapUrl: 'ldap://192.168.0.30:389',
+            userDn: 'administrator@yliyun.com',
+            password: 'yliyun@123'
+        });
+        client.searchGroup('cn=Users,dc=yliyun,dc=com').then(function(results) {
+            console.log(results);
+            done();
+        }).catch(done);
+    });
+
+    it('searchUser', function(done) {
+        var client = new LdapClient({
+            ldapUrl: 'ldap://192.168.0.30:389',
+            userDn: 'administrator@yliyun.com',
+            password: 'yliyun@123'
+        });
+        client.searchUser('ou=研发部,ou=一粒云,dc=yliyun,dc=com').then(function(results) {
+            console.log(results);
+            done();
+        }).catch(done);
     });
 });
