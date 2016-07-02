@@ -17,35 +17,42 @@ var LdapClient = RedisClient('node-ldap');
 
 var client = new LdapClient({
     ldapUrl: 'ldap://192.168.1.81:389',
-    userDn: 'administrator@ad.yliyun.com',
+    userDn: 'administrator@yliyun.com',
     password: 'yliyun@123'
 });
 
 
  // 用户认证
-client.auth('administrator@ad.yliyun.com', 'yliyun@123').then(function() {
+client.auth('administrator@yliyun.com', 'yliyun@123').then(function() {
     console.log('success');
 }).catch(function(err) {
     console.error(err);    
 });
 
 // 搜索部门
-client.searchOU('dc=ad,dc=yliyun,dc=com').then(function(ous) {
+client.searchOU('cn=Users,dc=yliyun,dc=com').then(function(ous) {
     console.log(ous);
 }).catch(function(err) {
     console.error(err);    
 });
 
+// 搜索群组
+client.searchGroup('cn=Users,dc=yliyun,dc=com').then(function(groups) {
+    console.log(groups);
+}).catch(function(err) {
+    console.error(err);    
+});
+
 // 搜索用户
-client.searchUser('dc=ad,dc=yliyun,dc=com').then(function(users) {
+client.searchUser('cn=Users,dc=yliyun,dc=com').then(function(users) {
     console.log(users);
 }).catch(function(err) {
     console.error(err);    
 });
 
 // 搜索
-client.searchUser({
-    base: 'dc=ad,dc=yliyun,dc=com',
+client.search({
+    base: 'dc=yliyun,dc=com',
     scope: 'sub', // 默认为'one'
     paged: 'true', // 默认为true
     filter: '(objectclass=organizationalUnit)'
@@ -60,5 +67,3 @@ client.disconnect();
 
 
 ```
-
-
